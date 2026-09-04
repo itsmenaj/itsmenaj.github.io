@@ -3,433 +3,452 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ezra Naj — Web & Backend Developer</title>
+<title>Ezra Naj — Web &amp; Backend Developer</title>
+<meta name="description" content="Ezra Naj — mahasiswa yang membangun fondasi di pengembangan web dan backend. Lihat proyek, skill, dan cara menghubungi.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --paper: #f6f7f5;
-    --panel: #eeefe9;
-    --rule: #d9dbd2;
-    --ink: #1b1d22;
-    --ink-soft: #55585f;
-    --ink-faint: #8a8d92;
-    --signal: #2c5f8a;
-    --signal-deep: #1f4363;
-    --signal-tint: rgba(44, 95, 138, 0.08);
-    --sans: 'IBM Plex Sans', sans-serif;
-    --mono: 'IBM Plex Mono', monospace;
+    --bg: #FAFAFA;
+    --fg: #09090B;
+    --surface: #FFFFFF;
+    --primary: #18181B;
+    --secondary: #3F3F46;
+    --accent: #2563EB;
+    --accent-dim: #DBE6FD;
+    --muted: #E8ECF0;
+    --muted-fg: #475569;
+    --border: #E4E4E7;
+    --border-strong: #D4D4D8;
+    --mono: 'JetBrains Mono', monospace;
+    --heading: 'Poppins', sans-serif;
+    --body: 'Open Sans', sans-serif;
+    --radius: 4px;
+    --max: 1120px;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
 
   body {
-    background: var(--paper);
-    color: var(--ink);
-    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--body);
     line-height: 1.65;
+    font-size: 16px;
   }
 
   a { color: inherit; text-decoration: none; }
+  ::selection { background: var(--accent-dim); color: var(--accent); }
 
-  .wrap {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 0 32px;
+  a:focus-visible, button:focus-visible, .btn:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
   }
+
+  .skip-link {
+    position: absolute; left: -9999px; top: 0;
+    background: var(--accent); color: #fff; padding: 10px 16px;
+    font-family: var(--mono); font-size: 13px; z-index: 100;
+  }
+  .skip-link:focus { left: 0; }
+
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 32px; }
 
   /* NAV */
   nav {
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    background: rgba(246, 247, 245, 0.92);
-    backdrop-filter: blur(6px);
-    border-bottom: 1px solid var(--rule);
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(250, 250, 250, 0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
   }
-  nav .wrap {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 68px;
-  }
+  nav .wrap { display: flex; justify-content: space-between; align-items: center; height: 72px; }
   .logo {
-    font-weight: 600;
-    font-size: 15px;
-    letter-spacing: -0.01em;
+    font-family: var(--heading); font-weight: 700; font-size: 18px;
+    letter-spacing: -0.01em; color: var(--primary);
   }
-  .nav-links {
-    display: flex;
-    gap: 32px;
-    font-size: 14px;
-  }
+  .logo-dot { color: var(--accent); }
+  .nav-links { display: flex; align-items: center; gap: 4px; font-size: 14.5px; font-weight: 500; }
   .nav-links a {
-    color: var(--ink-soft);
-    padding-bottom: 3px;
-    border-bottom: 1px solid transparent;
-    transition: color 0.15s ease, border-color 0.15s ease;
+    color: var(--secondary); padding: 10px 16px; border-radius: var(--radius);
+    min-height: 44px; display: flex; align-items: center; transition: color 0.2s ease, background 0.2s ease;
   }
-  .nav-links a:hover { color: var(--ink); border-color: var(--signal); }
+  .nav-links a:hover { color: var(--fg); background: var(--muted); }
+  .nav-cta {
+    background: var(--primary) !important; color: #fff !important;
+    margin-left: 8px; font-weight: 600;
+  }
+  .nav-cta:hover { background: var(--accent) !important; }
+
+  @media (max-width: 680px) {
+    .nav-links a:not(.nav-cta) { display: none; }
+  }
 
   /* HERO */
   .hero {
-    padding: 96px 0 72px;
+    padding: 100px 0 88px;
+    border-bottom: 1px solid var(--border);
   }
-  .hero-kicker {
-    font-size: 14.5px;
-    color: var(--signal-deep);
-    margin-bottom: 20px;
-  }
-  h1 {
-    font-size: clamp(2.1rem, 5vw, 3.1rem);
-    font-weight: 600;
-    letter-spacing: -0.02em;
-    line-height: 1.18;
-    max-width: 16ch;
-  }
-  .hero-sub {
-    font-size: 17px;
-    color: var(--ink-soft);
-    max-width: 56ch;
-    margin-top: 22px;
-  }
-  .hero-actions {
-    display: flex;
-    gap: 14px;
-    margin-top: 34px;
-    flex-wrap: wrap;
-  }
-  .btn {
-    font-size: 14.5px;
-    padding: 12px 22px;
-    border-radius: 3px;
-    border: 1px solid var(--ink);
-    transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
-  }
-  .btn-primary {
-    background: var(--ink);
-    color: var(--paper);
-  }
-  .btn-primary:hover { background: var(--signal-deep); border-color: var(--signal-deep); }
-  .btn-ghost {
-    color: var(--ink);
-    border-color: var(--rule);
-  }
-  .btn-ghost:hover { border-color: var(--ink); }
+  .hero-inner { display: grid; grid-template-columns: 1fr auto; gap: 60px; align-items: center; }
 
-  /* HERO FACTS STRIP */
-  .facts {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    border-top: 1px solid var(--rule);
-    border-bottom: 1px solid var(--rule);
-    margin-top: 56px;
+  .eyebrow {
+    font-family: var(--mono); font-size: 12.5px; font-weight: 600; color: var(--accent);
+    text-transform: uppercase; letter-spacing: 0.08em;
+    display: inline-flex; align-items: center; gap: 8px; margin-bottom: 22px;
   }
-  .fact {
-    padding: 20px 24px 20px 0;
-    border-left: 1px solid var(--rule);
+  .eyebrow::before {
+    content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--accent);
   }
-  .fact:first-child { border-left: none; padding-left: 0; }
-  .fact-value {
-    font-family: var(--mono);
-    font-size: 22px;
-    color: var(--signal-deep);
+
+  h1 {
+    font-family: var(--heading); font-weight: 700;
+    font-size: clamp(2.4rem, 5.4vw, 3.8rem);
+    letter-spacing: -0.03em; line-height: 1.06; color: var(--primary);
   }
-  .fact-label {
-    font-size: 13px;
-    color: var(--ink-faint);
-    margin-top: 4px;
+  h1 .accent { color: var(--accent); }
+
+  .hero-sub {
+    font-size: 18px; color: var(--muted-fg); max-width: 520px; margin-top: 20px;
+  }
+
+  .hero-actions { display: flex; gap: 14px; margin-top: 34px; flex-wrap: wrap; }
+  .btn {
+    font-family: var(--body); font-size: 15px; font-weight: 600;
+    padding: 14px 26px; border-radius: var(--radius);
+    border: 1px solid var(--border-strong);
+    min-height: 48px; display: inline-flex; align-items: center; gap: 8px;
+    cursor: pointer; transition: all 0.2s ease;
+  }
+  .btn-primary { background: var(--primary); color: #fff; border-color: var(--primary); }
+  .btn-primary:hover { background: var(--accent); border-color: var(--accent); }
+  .btn-ghost { background: var(--surface); color: var(--primary); }
+  .btn-ghost:hover { border-color: var(--primary); }
+
+  .hero-card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
+    padding: 28px; width: 260px; box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+  .avatar {
+    width: 56px; height: 56px; border-radius: 8px; background: var(--primary); color: #fff;
+    font-family: var(--heading); font-weight: 700; font-size: 22px;
+    display: flex; align-items: center; justify-content: center; margin-bottom: 18px;
+  }
+  .hero-card h3 { font-family: var(--heading); font-size: 16px; font-weight: 600; margin-bottom: 2px; }
+  .hero-card .role { font-size: 13px; color: var(--muted-fg); margin-bottom: 18px; }
+  .hero-card-stats { display: grid; gap: 12px; }
+  .hcs-row {
+    display: flex; justify-content: space-between; font-size: 13px;
+    padding-top: 10px; border-top: 1px solid var(--border);
+  }
+  .hcs-row:first-child { padding-top: 0; border-top: none; }
+  .hcs-row b { font-family: var(--mono); color: var(--primary); }
+  .hcs-row span:first-child { color: var(--muted-fg); }
+
+  @media (max-width: 780px) {
+    .hero-inner { grid-template-columns: 1fr; }
+    .hero-card { width: 100%; }
   }
 
   /* SECTIONS */
-  section { padding: 68px 0; border-top: 1px solid var(--rule); }
-  h2 {
-    font-size: 24px;
-    font-weight: 600;
-    letter-spacing: -0.01em;
-    margin-bottom: 36px;
+  section { padding: 84px 0; border-bottom: 1px solid var(--border); scroll-margin-top: 72px; }
+
+  .section-head { margin-bottom: 48px; }
+  .section-label {
+    font-family: var(--mono); font-size: 12.5px; font-weight: 600; color: var(--accent);
+    text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 10px; display: block;
   }
+  h2 {
+    font-family: var(--heading); font-size: 30px; font-weight: 700;
+    letter-spacing: -0.02em; color: var(--primary);
+  }
+  .section-desc { color: var(--muted-fg); font-size: 15.5px; margin-top: 10px; max-width: 540px; }
 
   /* ABOUT */
-  .about-grid {
-    display: grid;
-    grid-template-columns: 1.4fr 1fr;
-    gap: 56px;
-  }
-  .about-text p { color: var(--ink-soft); margin-bottom: 16px; font-size: 15.5px; max-width: 58ch; }
-  .about-text strong { color: var(--ink); font-weight: 600; }
+  .about-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 56px; }
+  .about-text p { color: var(--secondary); margin-bottom: 18px; font-size: 16px; }
+  .about-text strong { color: var(--primary); font-weight: 600; }
 
-  .focus-panel {
-    background: var(--panel);
-    border: 1px solid var(--rule);
-    padding: 24px;
+  .timeline { margin-top: 28px; display: grid; gap: 0; border-left: 2px solid var(--border); }
+  .timeline-item { padding: 0 0 22px 22px; position: relative; }
+  .timeline-item:last-child { padding-bottom: 0; }
+  .timeline-item::before {
+    content: ''; position: absolute; left: -7px; top: 3px;
+    width: 12px; height: 12px; border-radius: 50%; background: var(--surface);
+    border: 2px solid var(--accent);
   }
-  .focus-panel-title {
-    font-size: 13px;
-    color: var(--ink-faint);
-    margin-bottom: 14px;
+  .timeline-item .tl-label {
+    font-family: var(--mono); font-size: 11.5px; font-weight: 600; color: var(--accent);
+    text-transform: uppercase; letter-spacing: 0.06em; display: block; margin-bottom: 4px;
   }
-  .focus-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    padding: 10px 0;
-    border-top: 1px solid var(--rule);
-    font-size: 14.5px;
-  }
-  .focus-row:first-of-type { border-top: none; }
-  .focus-row .status {
-    font-family: var(--mono);
-    font-size: 12px;
-    color: var(--signal-deep);
-  }
+  .timeline-item p { color: var(--secondary); font-size: 14.5px; }
 
-  /* SKILLS */
-  .skills-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 14.5px;
+  .skill-panel {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 26px;
+    height: fit-content;
   }
-  .skills-table th {
-    text-align: left;
-    font-weight: 500;
-    color: var(--ink-faint);
-    font-size: 13px;
-    padding: 0 0 12px;
-    border-bottom: 1px solid var(--rule);
+  .skill-panel-title {
+    font-family: var(--heading); font-size: 13px; font-weight: 600; color: var(--primary);
+    text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 20px;
   }
-  .skills-table td {
-    padding: 14px 0;
-    border-bottom: 1px solid var(--rule);
-    vertical-align: top;
+  .skill-row { padding: 14px 0; border-bottom: 1px solid var(--border); }
+  .skill-row:last-child { border-bottom: none; padding-bottom: 0; }
+  .skill-row:first-child { padding-top: 0; }
+  .skill-row-top { display: flex; justify-content: space-between; font-size: 14px; margin-bottom: 8px; }
+  .skill-row .lang { color: var(--primary); font-weight: 600; }
+  .skill-row .lvl { font-family: var(--mono); color: var(--muted-fg); font-size: 11.5px; }
+  .bar-track { height: 6px; border-radius: 3px; background: var(--muted); overflow: hidden; }
+  .bar-fill { height: 100%; border-radius: 3px; background: var(--accent); }
+
+  /* SKILLS TAGS */
+  .tag-groups { display: grid; gap: 30px; }
+  .tag-group-label {
+    font-family: var(--heading); font-size: 13px; font-weight: 600; color: var(--primary);
+    margin-bottom: 14px; text-transform: uppercase; letter-spacing: 0.06em;
   }
-  .skills-table tr:last-child td { border-bottom: none; }
-  .skills-table td:first-child {
-    color: var(--ink);
-    font-weight: 500;
-    width: 34%;
+  .tags { display: flex; flex-wrap: wrap; gap: 10px; }
+  .tag {
+    font-family: var(--body); font-size: 14px; font-weight: 500; padding: 10px 18px;
+    border: 1px solid var(--border-strong); border-radius: var(--radius); color: var(--secondary);
+    background: var(--surface); transition: all 0.2s ease; min-height: 42px;
+    display: inline-flex; align-items: center;
   }
-  .skills-table td:last-child { color: var(--ink-soft); }
+  .tag:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-dim); }
 
   /* PROJECTS */
-  .project-list { border-top: 1px solid var(--rule); }
-  .project-row {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 24px;
-    padding: 28px 0;
-    border-bottom: 1px solid var(--rule);
+  .projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+  .project-card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
+    padding: 30px; transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    display: flex; flex-direction: column;
   }
-  .project-name {
-    font-size: 18px;
-    font-weight: 600;
-    margin-bottom: 8px;
-  }
-  .project-desc {
-    color: var(--ink-soft);
-    font-size: 14.5px;
-    max-width: 54ch;
-    margin-bottom: 12px;
-  }
-  .project-tags {
-    font-family: var(--mono);
-    font-size: 12.5px;
-    color: var(--signal-deep);
-  }
+  .project-card:hover { border-color: var(--border-strong); box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
+  .project-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 12px; }
+  .project-index { font-family: var(--mono); font-size: 12px; color: var(--muted-fg); margin-bottom: 6px; display: block; }
+  .project-name { font-family: var(--heading); font-size: 19px; font-weight: 600; color: var(--primary); }
   .project-status {
-    font-family: var(--mono);
-    font-size: 12px;
-    color: var(--ink-faint);
-    white-space: nowrap;
-    padding-top: 3px;
+    font-family: var(--mono); font-size: 11px; font-weight: 600; padding: 5px 11px; border-radius: 20px;
+    white-space: nowrap; background: var(--accent-dim); color: var(--accent); flex-shrink: 0;
   }
+  .project-desc { color: var(--secondary); font-size: 14.5px; margin-bottom: 18px; flex-grow: 1; }
+  .project-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+  .project-tags span {
+    font-family: var(--mono); font-size: 11.5px; font-weight: 500; color: var(--secondary);
+    background: var(--muted); padding: 5px 11px; border-radius: 4px;
+  }
+  .project-link {
+    font-family: var(--body); font-size: 14px; font-weight: 600; color: var(--primary);
+    display: inline-flex; align-items: center; gap: 7px; padding: 10px 0;
+    border-top: 1px solid var(--border);
+  }
+  .project-link:hover { color: var(--accent); }
+  .project-link svg { width: 15px; height: 15px; }
 
   /* CONTACT */
-  .contact-grid {
-    display: grid;
-    grid-template-columns: 1.3fr 1fr;
-    gap: 40px;
-    align-items: start;
+  #contact { border-bottom: none; }
+  .contact-box {
+    background: var(--primary); border-radius: 12px; padding: 56px 40px; text-align: center;
   }
-  .contact-grid p {
-    color: var(--ink-soft);
-    font-size: 15.5px;
-    max-width: 46ch;
-  }
-  .contact-links {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-  }
-  .contact-links a {
-    display: flex;
-    justify-content: space-between;
-    padding: 14px 0;
-    border-bottom: 1px solid var(--rule);
-    font-size: 15px;
-    color: var(--ink);
-  }
-  .contact-links a:first-child { border-top: 1px solid var(--rule); }
-  .contact-links a:hover { color: var(--signal-deep); }
-  .contact-links span.arrow { color: var(--ink-faint); }
-  .contact-links a:hover span.arrow { color: var(--signal-deep); }
+  .contact-box h2 { color: #fff; margin-bottom: 14px; }
+  .contact-box p { color: #C4C4CC; margin-bottom: 32px; max-width: 460px; margin-left: auto; margin-right: auto; font-size: 16px; }
+  .contact-links { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
+  .contact-box .btn-primary { background: var(--accent); border-color: var(--accent); }
+  .contact-box .btn-primary:hover { background: #1D4ED8; border-color: #1D4ED8; }
+  .contact-box .btn-ghost { background: transparent; color: #fff; border-color: #3F3F46; }
+  .contact-box .btn-ghost:hover { border-color: #fff; }
 
   footer {
-    padding: 28px 0 40px;
-    font-size: 13px;
-    color: var(--ink-faint);
-    border-top: 1px solid var(--rule);
+    text-align: center; padding: 32px 0; font-family: var(--mono);
+    font-size: 12.5px; color: var(--muted-fg);
   }
 
-  @media (max-width: 720px) {
-    .about-grid, .contact-grid { grid-template-columns: 1fr; }
-    .facts { grid-template-columns: 1fr; }
-    .fact { border-left: none; border-top: 1px solid var(--rule); padding: 16px 0; }
-    .fact:first-child { border-top: none; }
-    .project-row { grid-template-columns: 1fr; }
-    .nav-links { gap: 18px; }
+  @media (max-width: 780px) {
+    .about-grid { grid-template-columns: 1fr; }
   }
 
   @media (prefers-reduced-motion: reduce) {
-    * { scroll-behavior: auto !important; }
-  }
-
-  ::selection { background: var(--signal-tint); color: var(--signal-deep); }
-
-  a:focus-visible, button:focus-visible {
-    outline: 2px solid var(--signal);
-    outline-offset: 2px;
+    html { scroll-behavior: auto; }
   }
 </style>
 </head>
 <body>
+<a href="#about" class="skip-link">Lompat ke konten utama</a>
 
-<nav>
+<nav aria-label="Navigasi utama">
   <div class="wrap">
-    <div class="logo">Ezra Naj</div>
+    <a href="#top" class="logo">Ezra Naj<span class="logo-dot">.</span></a>
     <div class="nav-links">
       <a href="#about">Tentang</a>
-      <a href="#skills">Kemampuan</a>
+      <a href="#skills">Skills</a>
       <a href="#projects">Proyek</a>
-      <a href="#contact">Kontak</a>
+      <a href="#contact" class="nav-cta">Hubungi Saya</a>
     </div>
   </div>
 </nav>
 
-<div class="wrap">
-  <section class="hero" style="border-top:none;">
-    <div class="hero-kicker">Web & Backend Developer</div>
-    <h1>Belajar membangun sistem, bukan cuma membaca tentangnya.</h1>
-    <p class="hero-sub">Saya Ezra, mahasiswa yang sedang membangun fondasi di pengembangan web dan backend. Sebagian besar yang saya kuasai lahir dari proyek kecil yang saya buat, error yang saya perbaiki, dan proses mengulang sampai jalan.</p>
-    <div class="hero-actions">
-      <a href="#projects" class="btn btn-primary">Lihat proyek</a>
-      <a href="#contact" class="btn btn-ghost">Kirim pesan</a>
-    </div>
-
-    <div class="facts">
-      <div class="fact">
-        <div class="fact-value">2023</div>
-        <div class="fact-label">Mulai belajar coding</div>
+<div id="top">
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <div>
+        <div class="eyebrow">Terbuka untuk kolaborasi</div>
+        <h1>Web &amp; Backend<br>Developer <span class="accent">dalam proses</span>.</h1>
+        <p class="hero-sub">Saya Ezra Naj, mahasiswa yang sedang membangun fondasi di pengembangan web dan sistem backend — belajar dengan membuat, bukan cuma membaca.</p>
+        <div class="hero-actions">
+          <a href="#projects" class="btn btn-primary">Lihat Proyek</a>
+          <a href="#contact" class="btn btn-ghost">Hubungi Saya</a>
+        </div>
       </div>
-      <div class="fact">
-        <div class="fact-value">6</div>
-        <div class="fact-label">Bahasa pemrograman dipakai</div>
-      </div>
-      <div class="fact">
-        <div class="fact-value">3</div>
-        <div class="fact-label">Proyek sedang dikerjakan</div>
+      <div class="hero-card">
+        <div class="avatar">EN</div>
+        <h3>Ezra Naj</h3>
+        <div class="role">Web &amp; Backend Developer</div>
+        <div class="hero-card-stats">
+          <div class="hcs-row"><span>Bahasa dipelajari</span><b>6</b></div>
+          <div class="hcs-row"><span>Proyek berjalan</span><b>3</b></div>
+          <div class="hcs-row"><span>Mulai belajar</span><b>2025</b></div>
+        </div>
       </div>
     </div>
   </section>
 
   <section id="about">
-    <h2>Tentang saya</h2>
-    <div class="about-grid">
-      <div class="about-text">
-        <p>Saya mahasiswa yang fokus mendalami <strong>pengembangan web dan backend</strong>. Sebagian ilmu saya dapat dari mata kuliah, tapi porsi terbesarnya justru dari coba-coba sendiri: bikin proyek kecil, menemukan error, mencari solusinya, lalu mengulang prosesnya sampai paham.</p>
-        <p>Saat ini saya masih di tahap membangun fondasi — memahami logika pemrograman dengan baik, membiasakan diri dengan alur kerja developer sungguhan, dan mulai berani mengerjakan proyek yang lebih dari sekadar tugas kuliah.</p>
+    <div class="wrap">
+      <div class="section-head">
+        <span class="section-label">Tentang Saya</span>
+        <h2>Latar belakang &amp; perjalanan belajar</h2>
       </div>
-      <div class="focus-panel">
-        <div class="focus-panel-title">Fokus belajar saat ini</div>
-        <div class="focus-row"><span>Pengembangan web</span><span class="status">berjalan</span></div>
-        <div class="focus-row"><span>Pengembangan backend</span><span class="status">berjalan</span></div>
-        <div class="focus-row"><span>Logika & struktur data</span><span class="status">dasar</span></div>
+      <div class="about-grid">
+        <div class="about-text">
+          <p>Saya mahasiswa yang fokus mendalami <strong>pengembangan web dan backend</strong>. Sebagian besar yang saya tahu didapat dari mata kuliah, tapi porsi terbesarnya justru dari <strong>coba-coba sendiri</strong> — bikin proyek kecil, menemui error, mencari solusinya, lalu mengulang prosesnya.</p>
+          <p>Saat ini saya sedang membangun fondasi: memahami logika pemrograman dengan baik, terbiasa dengan alur kerja developer profesional, dan mulai berani membuat proyek yang lebih dari sekadar tugas kuliah.</p>
+          <div class="timeline">
+            <div class="timeline-item">
+              <span class="tl-label">Sekarang</span>
+              <p>Memperdalam backend &amp; REST API, membiasakan workflow dengan Git.</p>
+            </div>
+            <div class="timeline-item">
+              <span class="tl-label">Sebelumnya</span>
+              <p>Belajar dasar web development lewat mata kuliah dan proyek mandiri.</p>
+            </div>
+          </div>
+        </div>
+        <div class="skill-panel">
+          <div class="skill-panel-title">Fokus Belajar</div>
+          <div class="skill-row">
+            <div class="skill-row-top"><span class="lang">Web Development</span><span class="lvl">LEARNING</span></div>
+            <div class="bar-track"><div class="bar-fill" style="width:55%"></div></div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-row-top"><span class="lang">Backend Development</span><span class="lvl">LEARNING</span></div>
+            <div class="bar-track"><div class="bar-fill" style="width:40%"></div></div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-row-top"><span class="lang">Logika &amp; Struktur Data</span><span class="lvl">IN PROGRESS</span></div>
+            <div class="bar-track"><div class="bar-fill" style="width:65%"></div></div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <section id="skills">
-    <h2>Kemampuan</h2>
-    <table class="skills-table">
-      <thead>
-        <tr>
-          <th>Kategori</th>
-          <th>Detail</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Bahasa pemrograman</td>
-          <td>HTML, CSS, JavaScript, Python, Java, PHP</td>
-        </tr>
-        <tr>
-          <td>Sedang dipelajari</td>
-          <td>Version control dengan Git, dasar-dasar database, REST API, responsive design</td>
-        </tr>
-        <tr>
-          <td>Cara kerja</td>
-          <td>Belajar lewat proyek kecil, membaca dokumentasi resmi, dan memperbaiki error satu per satu</td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="wrap">
+      <div class="section-head">
+        <span class="section-label">Skills</span>
+        <h2>Bahasa &amp; tools yang saya gunakan</h2>
+      </div>
+      <div class="tag-groups">
+        <div>
+          <div class="tag-group-label">Bahasa Pemrograman</div>
+          <div class="tags">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">Python</span>
+            <span class="tag">Java</span>
+            <span class="tag">PHP</span>
+          </div>
+        </div>
+        <div>
+          <div class="tag-group-label">Sedang Dipelajari</div>
+          <div class="tags">
+            <span class="tag">Version Control (Git)</span>
+            <span class="tag">Database Dasar</span>
+            <span class="tag">REST API</span>
+            <span class="tag">Responsive Design</span>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
   <section id="projects">
-    <h2>Proyek</h2>
-    <div class="project-list">
-      <div class="project-row">
-        <div>
-          <div class="project-name">Nama Proyek 1</div>
-          <p class="project-desc">Deskripsi singkat proyek — jelaskan masalah apa yang diselesaikan, dan apa peran kamu di dalamnya.</p>
-          <div class="project-tags">HTML · CSS · JavaScript</div>
-        </div>
-        <div class="project-status">dalam pengerjaan</div>
+    <div class="wrap">
+      <div class="section-head">
+        <span class="section-label">Proyek</span>
+        <h2>Apa yang sudah saya bangun</h2>
+        <p class="section-desc">Beberapa proyek yang sedang berjalan sebagai bagian dari proses belajar.</p>
       </div>
-      <div class="project-row">
-        <div>
-          <div class="project-name">Nama Proyek 2</div>
+      <div class="projects">
+        <article class="project-card">
+          <span class="project-index">01</span>
+          <div class="project-top">
+            <h3 class="project-name">Nama Proyek 1</h3>
+            <span class="project-status">In Development</span>
+          </div>
+          <p class="project-desc">Deskripsi singkat proyek — ceritakan masalah apa yang diselesaikan, dan apa peran kamu di dalamnya.</p>
+          <div class="project-tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+          <a href="#" class="project-link" aria-label="Lihat kode Nama Proyek 1 di GitHub">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49 0-.24-.01-.87-.01-1.71-2.78.62-3.37-1.36-3.37-1.36-.45-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.63.07-.63 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.73 0 0 .84-.28 2.75 1.05a9.3 9.3 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.42.2 2.47.1 2.73.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.8-4.57 5.06.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .27.18.6.69.49A10.02 10.02 0 0 0 22 12.25C22 6.58 17.52 2 12 2Z"/></svg>
+            Lihat kode
+          </a>
+        </article>
+        <article class="project-card">
+          <span class="project-index">02</span>
+          <div class="project-top">
+            <h3 class="project-name">Nama Proyek 2</h3>
+            <span class="project-status">In Development</span>
+          </div>
           <p class="project-desc">Deskripsi singkat proyek kedua kamu di sini.</p>
-          <div class="project-tags">PHP · MySQL</div>
-        </div>
-        <div class="project-status">dalam pengerjaan</div>
-      </div>
-      <div class="project-row">
-        <div>
-          <div class="project-name">Nama Proyek 3</div>
+          <div class="project-tags"><span>PHP</span><span>MySQL</span></div>
+          <a href="#" class="project-link" aria-label="Lihat kode Nama Proyek 2 di GitHub">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49 0-.24-.01-.87-.01-1.71-2.78.62-3.37-1.36-3.37-1.36-.45-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.63.07-.63 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.73 0 0 .84-.28 2.75 1.05a9.3 9.3 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.42.2 2.47.1 2.73.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.8-4.57 5.06.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .27.18.6.69.49A10.02 10.02 0 0 0 22 12.25C22 6.58 17.52 2 12 2Z"/></svg>
+            Lihat kode
+          </a>
+        </article>
+        <article class="project-card">
+          <span class="project-index">03</span>
+          <div class="project-top">
+            <h3 class="project-name">Nama Proyek 3</h3>
+            <span class="project-status">In Development</span>
+          </div>
           <p class="project-desc">Deskripsi singkat proyek ketiga kamu di sini.</p>
-          <div class="project-tags">Java · Python</div>
-        </div>
-        <div class="project-status">dalam pengerjaan</div>
+          <div class="project-tags"><span>Java</span><span>Python</span></div>
+          <a href="#" class="project-link" aria-label="Lihat kode Nama Proyek 3 di GitHub">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49 0-.24-.01-.87-.01-1.71-2.78.62-3.37-1.36-3.37-1.36-.45-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.63.07-.63 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.73 0 0 .84-.28 2.75 1.05a9.3 9.3 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.42.2 2.47.1 2.73.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.8-4.57 5.06.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .27.18.6.69.49A10.02 10.02 0 0 0 22 12.25C22 6.58 17.52 2 12 2Z"/></svg>
+            Lihat kode
+          </a>
+        </article>
       </div>
     </div>
   </section>
 
   <section id="contact">
-    <h2>Mari terhubung</h2>
-    <div class="contact-grid">
-      <p>Terbuka untuk diskusi, kolaborasi proyek, atau sekadar ngobrol soal coding. Kirim pesan lewat email atau lihat kode saya di GitHub.</p>
-      <div class="contact-links">
-        <a href="mailto:ezranaj03@gmail.com">Email <span class="arrow">↗</span></a>
-        <a href="https://github.com/itsmenaj" target="_blank" rel="noopener">GitHub <span class="arrow">↗</span></a>
-        <a href="#" target="_blank" rel="noopener">LinkedIn <span class="arrow">↗</span></a>
+    <div class="wrap">
+      <div class="contact-box">
+        <h2>Mari Terhubung</h2>
+        <p>Terbuka untuk diskusi, kolaborasi proyek, atau sekadar ngobrol soal coding.</p>
+        <div class="contact-links">
+          <a href="mailto:ezranaj03@gmail.com" class="btn btn-primary">Email Saya</a>
+          <a href="https://github.com/itsmenaj" class="btn btn-ghost" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://linkedin.com" class="btn btn-ghost" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
       </div>
     </div>
   </section>
 
   <footer>
-    &copy; <span id="year"></span> Ezra Naj. Dibangun dengan HTML &amp; CSS, di-host di GitHub Pages.
+    &copy; <span id="year"></span> Ezra Naj. Dibangun dengan HTML &amp; CSS.
   </footer>
 </div>
 
