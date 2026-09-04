@@ -10,12 +10,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --navy-0: #0A0E27;
-    --navy-1: #10152F;
-    --navy-2: #171D3D;
+    --navy-0: #17181C;
+    --navy-1: #1C1D22;
+    --navy-2: #232428;
     --line: rgba(255,255,255,0.08);
     --blue: #3B82F6;
-    --blue-dim: #1E3A8A;
+    --blue-dim: #24344F;
     --white: #FFFFFF;
     --text-1: #C4C9DE;
     --text-2: #7D84A8;
@@ -51,7 +51,7 @@
 
   /* HERO */
   .hero { position: relative; overflow: hidden; border-bottom: 1px solid var(--line); background:
-      radial-gradient(ellipse 700px 500px at 85% 0%, rgba(59,130,246,0.16), transparent 60%),
+      radial-gradient(ellipse 700px 500px at 85% 0%, rgba(59,130,246,0.07), transparent 60%),
       var(--navy-0); }
   .hero-grid { display:grid; grid-template-columns: 1fr 1.05fr 280px; gap: 20px; align-items: stretch; min-height: 620px; }
   .hero-text { align-self:center; padding: 60px 0; }
@@ -76,7 +76,7 @@
   .hero-visual { position:relative; align-self:end; display:flex; align-items:flex-end; justify-content:center; }
   .visual-card {
     width: 100%; max-width: 380px; aspect-ratio: 3/4; border-radius: 20px 20px 0 0;
-    background: linear-gradient(160deg, var(--navy-2) 0%, #101838 60%, var(--blue-dim) 130%);
+    background: linear-gradient(160deg, var(--navy-2) 0%, #2A2B30 55%, #1A1C22 130%);
     border: 1px solid var(--line); border-bottom:none;
     position:relative; overflow:hidden;
     display:flex; align-items:center; justify-content:center;
@@ -174,7 +174,7 @@
   /* CONTACT */
   #contact { border-bottom:none; }
   .contact-box { background: var(--navy-2); border:1px solid var(--line); border-radius:16px; padding:56px 40px; text-align:center; position:relative; overflow:hidden; }
-  .contact-box::before { content:''; position:absolute; inset:0; background: radial-gradient(ellipse 500px 300px at 50% 0%, rgba(59,130,246,0.14), transparent 70%); pointer-events:none; }
+  .contact-box::before { content:''; position:absolute; inset:0; background: radial-gradient(ellipse 500px 300px at 50% 0%, rgba(59,130,246,0.08), transparent 70%); pointer-events:none; }
   .contact-box h2 { font-family: var(--heading); font-size:28px; font-weight:700; margin-bottom:14px; position:relative; }
   .contact-box p { color: var(--text-1); margin-bottom:32px; max-width:460px; margin-left:auto; margin-right:auto; font-size:16px; position:relative; }
   .contact-links { display:flex; justify-content:center; gap:14px; flex-wrap:wrap; position:relative; }
